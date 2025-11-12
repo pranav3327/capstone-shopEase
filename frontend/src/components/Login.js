@@ -22,7 +22,7 @@ const Login = ({ onLogin }) => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3001/api/login', formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL || 'https://capstone-shopease.onrender.com'}/api/login`, formData);
       localStorage.setItem('token', response.data.token);
       onLogin(response.data.user);
     } catch (error) {
