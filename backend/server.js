@@ -59,7 +59,12 @@ app.post('/api/signup', async (req, res) => {
 // Login route
 app.post('/api/login', async (req, res) => {
   try {
+    console.log('Login request received:', req.body);
     const { email, password } = req.body;
+    
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
     
     const user = await prisma.user.findUnique({
       where: { email }
@@ -75,11 +80,12 @@ app.post('/api/login', async (req, res) => {
       return res.status(400).json({ error: 'Invalid credentials' });
     }
     
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET || 'fallback-secret');
     
     res.json({ token, user: { id: user.id, name: user.name, email: user.email } });
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    console.error('Login error:', error);
+    res.status(500).json({ error: error.message || 'Server error' });
   }
 });
 
