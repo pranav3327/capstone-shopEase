@@ -49,3 +49,9 @@ We will deploy the React frontend to Vercel.
     *   *Warning*: This will overwrite data in your production DB.
 
 Your ShopEase store is now live! 🚀
+
+## Troubleshooting
+If products are not loading:
+1.  **Check Vercel Environment Variables**: Ensure `VITE_API_URL` is set to your Render Backend URL (e.g., `https://shopease-backend.onrender.com`). **Do not add a trailing slash**.
+2.  **Check Render Logs**: Look for "Server running on port..." in the Render dashboard logs.
+3.  **Check Browser Console**: Open Developer Tools (F12) -> Console. If you see "Mixed Content" or "Connection Refused", your `VITE_API_URL` is likely missing or pointing to localhost.

@@ -10,7 +10,7 @@ const wishlistRoutes = require('./routes/wishlistRoutes');
 const app = express();
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || true,
+  origin: '*', // Allow all origins for debugging
   credentials: true
 }));
 app.use(express.json());
