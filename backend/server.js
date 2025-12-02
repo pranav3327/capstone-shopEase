@@ -20,6 +20,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/seed', require('./routes/seedRoutes'));
 
 // Basic route to test server
 app.get('/', (req, res) => {
