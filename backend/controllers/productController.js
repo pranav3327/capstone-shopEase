@@ -50,8 +50,12 @@ const getProducts = async (req, res) => {
 
     res.json({ products, page, pages: Math.ceil(count / pageSize) });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server Error' });
+    console.error('Error in getProducts:', error);
+    res.status(500).json({ 
+      error: 'Server Error', 
+      message: error.message,
+      stack: process.env.NODE_ENV === 'production' ? '🥞' : error.stack 
+    });
   }
 };
 
