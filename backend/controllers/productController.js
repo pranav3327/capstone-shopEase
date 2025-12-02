@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 // @route   GET /api/products
 // @access  Public
 const getProducts = async (req, res) => {
-  console.log('Prisma instance keys:', Object.keys(prisma));
   try {
     const pageSize = Number(req.query.limit) || 12; // Default to 12 for grid layout
     const page = Number(req.query.pageNumber) || 1;
