@@ -23,7 +23,7 @@ const ProductList = () => {
         const fetchProducts = async () => {
             setLoading(true);
             try {
-                let url = `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/products?limit=100`;
+                let url = `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/products?limit=200`;
                 if (sort) url += `&sort=${sort}`;
                 if (keyword) url += `&keyword=${keyword}`;
                 if (category) url += `&category=${encodeURIComponent(category)}`;
