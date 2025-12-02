@@ -23,7 +23,7 @@ const Cart = () => {
                 <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-3xl p-12 max-w-2xl mx-auto">
                     <div className="mb-6 text-6xl">🛒</div>
                     <h2 className="heading-lg mb-4">Your cart is empty</h2>
-                    <p className="text-muted mb-8 text-lg">Looks like you haven't added anything to your cart yet.</p>
+                    <p className="text-muted mb-8 text-lg">Looks like you haven't added anything to your cart yet!</p>
                     <Link to="/products" className="btn btn-primary px-8 py-3">Start Shopping</Link>
                 </div>
             </div>
